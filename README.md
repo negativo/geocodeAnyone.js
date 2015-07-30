@@ -27,37 +27,4 @@ Or ask to the client to enable the geolocation API:
 
 ##SHUT UP! GIVE ME A COMPLETE EXAMPLE
 
-
-	<script src="http://maps.google.com/maps/api/js?sensor=true"></script>
-		<script src="../build/geocodeAnyone.min.js"></script>
-		<script>
-
-		function askAddress(){
-			var result = document.querySelector(".address"),address;
-				result.innerHTML = 'searching ... ';
-
-
-			geocodeAnyone.askAddress(function(fullAddress){
-				address = JSON.stringify(fullAddress, null,"\t");
-
-				result.innerHTML = address;
-				console.log(fullAddress);
-			});
-
-		}
-
-		function askAddressFromAddress(address){
-		
-			var result = document.querySelector(".position"),address;
-			
-			result.innerHTML = 'searching ... ';
-			geocodeAnyone.getAddressFromAddress(address,function(position){
-			
-				address = JSON.stringify(position, null,"\t");
-				result.innerHTML = address;
-				console.log(position);
-			});
-		
-		}
-		
-	</script>
+Open examples/index.html
