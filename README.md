@@ -13,7 +13,7 @@ A deadly simple JavaScript library to deal with the geocode API.
 ##HOW
 
 Include the google code 
-	<script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+	http://maps.google.com/maps/api/js?sensor=true
 
 Get the geolocation data using an input string:
 
