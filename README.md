@@ -5,7 +5,7 @@
 A deadly simple JavaScript library to deal with the geocode API.
 
 
-##Requisites
+##Indispensable
 
 	typeof google.maps.Geocoder != "undefined"
 

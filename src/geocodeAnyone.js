@@ -19,10 +19,13 @@
 	};
 	var geocodeAnyone = {
 		init:function(){
-		
-			this.geocoder =  new google.maps.Geocoder() ;
-			this.fullAddress = '';
-			return this.geocoder;
+			if(typeof google.maps.Geocoder !== 'undefined'){
+				this.geocoder = new google.maps.Geocoder() ;
+				this.fullAddress = '';
+				return this.geocoder;
+			}else{
+				return 'google.maps.Geocoder is not defined';
+			}
 		},
 		getFullAddress:function(){
 
