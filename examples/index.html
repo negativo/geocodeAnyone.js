@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Geocode, Anyone? geocodeAnyone!</title>
+	<style>
+	body{
+		padding:10%;
+		text-align: center;
+	}
+	*{
+		font-family:helvetica, arial;
+
+	}
+	pre{
+		text-align: left;
+	}
+	</style>
+	<script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+	<script src="../build/geocodeAnyone.min.js"></script>
+	<script>
+
+	function askAddress(){
+		var result = document.querySelector(".address"),address;
+			result.innerHTML = 'searching ... ';
+
+
+		geocodeAnyone.askAddress(function(fullAddress){
+			address = JSON.stringify(fullAddress, null,"\t");
+
+			result.innerHTML = address;
+			console.log(fullAddress);
+		});
+
+	}
+
+	function askAddressFromAddress(address){
+	
+		var result = document.querySelector(".position"),address;
+		
+		result.innerHTML = 'searching ... ';
+		geocodeAnyone.getAddressFromAddress(address,function(position){
+		
+			address = JSON.stringify(position, null,"\t");
+			result.innerHTML = address;
+			console.log(position);
+		});
+	
+	}
+	
+	</script>
+</head>
+<body>
+	 <h1>Geocode ... ? ... Anyone? geocodeAnyone!</h1>
+	Hey, <br/>
+	what is my address?<br/>
+	<button onclick="askAddress();"> heyheyhey, click,click,click me, i know that!  </button><br/>
+	<pre class="address"></pre>
+	<hr/><br/>
+	Hey i DO know my address, <br/>
+	just give me all the other details, please! 
+	<br/><br/>
+	<input placeholder="write an address here! " onblur="askAddressFromAddress(this.value);"/><br/>
+	
+	<pre class="position"></pre>
+
+</body>
+</html>
