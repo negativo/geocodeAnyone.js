@@ -1,16 +1,20 @@
 #Geocode ... ? ... Anyone? geocodeAnyone!
 
-##what?
+##WHAT?
 
 A deadly simple JavaScript library to deal with the geocode API.
 
 
 ##Requisites
 
-	google.maps.Geocoder() 
+	typeof google.maps.Geocoder != "undefined"
 
 
-##how
+##HOW
+
+Include the google code 
+
+	<script src="http://maps.google.com/maps/api/js?sensor=true"></script>
 
 Get the geolocation data using an input string:
 
@@ -19,3 +23,9 @@ Get the geolocation data using an input string:
 Or ask to the client to enable the geolocation API:
 
 	geocodeAnyone.askAddress(callback);
+
+
+
+##SHUT UP! GIVE ME A COMPLETE EXAMPLE
+
+Open examples/index.html
