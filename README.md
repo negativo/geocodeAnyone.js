@@ -27,4 +27,4 @@ Or ask to the client to enable the geolocation API:
 
 ##SHUT UP! GIVE ME A COMPLETE EXAMPLE
 
-Open examples/index.html
+Open examples/index.html or  [Look at this demo](http://davideberardi.com/geocodeAnyone/examples/)
