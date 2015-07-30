@@ -116,8 +116,8 @@
 		},
 		destroy: function(){
 		
-			geocodeAnyone.geocoder = null;
-			geocodeAnyone.fullAddress = null;
+			window['geocodeAnyone'].geocoder = null;
+			window['geocodeAnyone'].fullAddress = null;
 		
 		}
 	};

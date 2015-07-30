@@ -24,6 +24,26 @@ Or ask to the client to enable the geolocation API:
 	geocodeAnyone.askAddress(callback);
 
 
+##EXAMPLE RESULTS
+
+Results for Input
+
+	Miami Beach
+
+
+	{
+		"route": "Highway A1A",
+		"neighborhood": "South Beach",
+		"locality": "Miami Beach",
+		"administrative_area_level_2": "Miami-Dade County",
+		"administrative_area_level_1": "Florida",
+		"country": "United States",
+		"postal_code": "33139",
+		"postal_code_suffix": "3112",
+		"lat": 25.790654,
+		"lng": -80.1300455,
+		"street_number": "1619-1649"
+	}
 
 ##SHUT UP! GIVE ME A COMPLETE EXAMPLE
 
