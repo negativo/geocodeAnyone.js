@@ -50,7 +50,6 @@
 			var lat = (position.coords!=null)?position.coords.latitude:position.G;
 		 	var lng = (position.coords!=null)?position.coords.longitude:position.K;
 		  	geocodeAnyone.fullAddress = geocodeAnyone.getAddressFromLatLng(lat, lng);
-		  	
 		  	return geocodeAnyone.fullAddress;
 		  	
 		},
@@ -72,27 +71,32 @@
 		  	});
 		},
 		getAddressFromLatLng:function(lat, lng){
-			var fullAddressArray = [];
-			var latlng = new google.maps.LatLng(lat, lng);
+			var fullAddressArray = [],
+				components,
+				latlng = new google.maps.LatLng(lat,lng),
+				current,
+				fullAddress;
+
 			geocodeAnyone.geocoder.geocode({'latLng': latlng}, function(results, status) {
 		    if (status == google.maps.GeocoderStatus.OK) {
-		    
 		      if (results[1]) {
-		      	var city;
-		        for (var i=0; i<results[0].address_components.length; i++) {
-		        	var current =  results[0].address_components[i];
-		        	
+		      	components = results[0].address_components;
+		        for (var i=0; i<components.length; i++) {
+		        	current =  components[i];
 		        	fullAddressArray.push({name:current.long_name,type:current.types[0]});
 		        	
 		        }
 		      	fullAddressArray.push({name:lat,type:'lat'});
 		      	fullAddressArray.push({name:lng,type:'lng'});
-		      	var fullAddress = fullAddressArray.reduce(function(obj,k){
+		      	fullAddress = fullAddressArray.reduce(function(obj,k){
 		      		obj[k.type] = k.name;
 		      		return obj;
 		      	});
+		      	fullAddress[fullAddress.type] = fullAddress.name;
+		      	delete fullAddress['name'];
+		      	delete fullAddress['type'];
 		      	geocodeAnyone.fullAddress  = fullAddress;
-		      	promise.callDone(geocodeAnyone.fullAddress);
+		      	promise.callDone(fullAddress);
 		      	return fullAddress;
 		      
 		      } else {
