@@ -17,6 +17,7 @@
 	        }
 	    }
 	};
+	
 	var geocodeAnyone = {
 		init:function(){
 			if(typeof google.maps.Geocoder !== 'undefined'){
