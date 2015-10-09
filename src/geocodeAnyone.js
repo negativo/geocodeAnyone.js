@@ -64,7 +64,7 @@
 			geocodeAnyone.geocoder.geocode( { 'address': address}, function(results, status) {
 			    if (status == google.maps.GeocoderStatus.OK) {
 		    		geocodeAnyone.askAddressSuccess(results[0].geometry.location);
-		    		
+		    		callback(results[0].geometry.location);
 		    		return {fullAddress:geocodeAnyone.fullAddress};
 		    	} else {
 		       		return 'Geocode was not successful for the following reason: ' + status;
