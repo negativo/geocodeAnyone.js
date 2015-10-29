@@ -47,9 +47,14 @@
 		},
 		
 		askAddressSuccess:function(position){
-		
-			var lat = (position.coords!=null)?position.coords.latitude:position.G;
-		 	var lng = (position.coords!=null)?position.coords.longitude:position.K;
+			if (typeof position.lat == 'function' && typeof position.lng == 'function' ) {
+				var lat = position.lat();
+				var lng = position.lng();
+			} else {
+				var lat = (position.coords!=null)?position.coords.latitude:position.G;
+				var lng = (position.coords!=null)?position.coords.longitude:position.K;
+			}
+			
 		  	geocodeAnyone.fullAddress = geocodeAnyone.getAddressFromLatLng(lat, lng);
 		  	return geocodeAnyone.fullAddress;
 		  	
